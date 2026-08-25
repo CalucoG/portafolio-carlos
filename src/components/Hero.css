@@ -1,0 +1,853 @@
+.hero.hero-redesign {
+  position: relative;
+
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+
+  padding: 130px 8% 90px;
+
+  overflow: hidden;
+  isolation: isolate;
+
+  background: #08090c;
+}
+
+.hero-redesign::after {
+  content: "";
+
+  position: absolute;
+
+  left: 8%;
+  right: 8%;
+  bottom: 32px;
+
+  height: 1px;
+
+  background: rgba(255, 255, 255, 0.07);
+
+  z-index: 2;
+}
+
+.hero-redesign .hero-content {
+  position: relative;
+  z-index: 3;
+
+  width: 100%;
+  max-width: 1000px;
+}
+
+/* =========================================
+   TERMINAL DE INICIO
+   ========================================= */
+
+.hero-terminal-intro {
+  position: absolute;
+
+  left: 0;
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 12px;
+
+  min-width: 360px;
+
+  padding: 20px 22px;
+
+  color: #b1b7c0;
+
+  background: rgba(10, 11, 14, 0.72);
+
+  border: 1px solid rgba(245, 165, 36, 0.14);
+  border-radius: 8px;
+
+  box-shadow: 0 18px 55px rgba(0, 0, 0, 0.28);
+
+  font-family: "Consolas", "Courier New", monospace;
+  font-size: clamp(0.9rem, 1.45vw, 1rem);
+  line-height: 1.5;
+
+  pointer-events: none;
+
+  animation:
+    terminalIntroExit 0.45s ease 2.8s forwards;
+}
+
+.terminal-intro-line {
+  opacity: 0;
+
+  transform: translateX(-8px);
+  
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.03);
+}
+
+.terminal-line-1 {
+  animation:
+    terminalLineAppear 0.28s ease 0.2s forwards;
+}
+
+.terminal-line-2 {
+  animation:
+    terminalLineAppear 0.28s ease 0.75s forwards;
+}
+
+.terminal-line-3 {
+  animation:
+    terminalLineAppear 0.28s ease 1.3s forwards;
+}
+
+.terminal-line-4 {
+  animation:
+    terminalLineAppear 0.28s ease 1.9s forwards;
+}
+
+.terminal-prompt {
+  margin-right: 10px;
+
+  color: #f5a524;
+}
+
+.terminal-ready {
+  color: #f5a524;
+  font-weight: 700;
+
+  letter-spacing: 1px;
+   text-shadow: 0 0 14px rgba(245, 165, 36, 0.22);
+}
+
+.terminal-intro-cursor {
+  margin-left: 2px;
+
+  color: #f5a524;
+
+  animation:
+    terminalBlink 0.55s steps(1, end) 0.9s infinite;
+}
+
+/* =========================================
+   INDICADOR SUPERIOR
+   ========================================= */
+
+.hero-index {
+  position: absolute;
+  z-index: 3;
+
+  top: 110px;
+  right: 8%;
+
+  color: #626873;
+
+  font-family: "Consolas", "Courier New", monospace;
+  font-size: 0.72rem;
+  font-weight: 600;
+
+  letter-spacing: 1.6px;
+
+  opacity: 0;
+
+  animation:
+    heroFadeIn 0.45s ease 6.85s  forwards;
+}
+
+/* =========================================
+   CABECERA / TERMINAL
+   ========================================= */
+
+.hero-eyebrow {
+  display: flex;
+  align-items: center;
+
+  gap: 11px;
+
+  margin-bottom: 32px;
+
+  color: #a1a6af;
+
+  font-family: "Consolas", "Courier New", monospace;
+  font-size: 0.78rem;
+  font-weight: 500;
+
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+}
+
+.hero-boot {
+  opacity: 0;
+
+  transform: translateY(-8px);
+
+  animation:
+    heroBootAppear 0.4s ease 3.0s forwards;
+}
+
+.hero-status-dot {
+  width: 7px;
+  height: 7px;
+
+  flex-shrink: 0;
+
+  background: #f5a524;
+
+  border-radius: 50%;
+
+  box-shadow:
+    0 0 14px rgba(245, 165, 36, 0.75);
+
+  animation:
+    heroStatusPulse 2.4s ease-in-out 3.4s infinite;
+}
+
+.hero-terminal-cursor {
+  color: #f5a524;
+
+  animation:
+    terminalBlink 0.7s steps(1, end) infinite;
+}
+
+/* =========================================
+   NOMBRE
+   ========================================= */
+
+.hero-name {
+  display: flex;
+  flex-direction: column;
+
+  margin: 0;
+
+  font-size: clamp(4rem, 10vw, 8.6rem);
+  font-weight: 800;
+
+  line-height: 0.82;
+
+  letter-spacing: -0.07em;
+
+  text-transform: uppercase;
+}
+
+.hero-redesign .hero-name .hero-name-first {
+  display: flex;
+
+  width: fit-content;
+
+  color: #f4f4f5;
+}
+
+.hero-redesign .hero-name .hero-name-last {
+  position: relative;
+
+  display: flex;
+
+  width: fit-content;
+
+  color: #f5a524;
+}
+
+.hero-letter {
+  display: inline-block;
+
+  opacity: 0;
+
+  transform:
+    translateY(18px)
+    scale(0.96);
+
+  filter: blur(5px);
+
+  animation:
+    heroLetterCompile 0.28s
+    cubic-bezier(0.2, 0.8, 0.2, 1)
+    var(--letter-delay)
+    forwards;
+}
+
+.hero-name-last::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: -14px;
+
+  width: 0;
+  height: 4px;
+
+  background: #f5a524;
+
+  animation:
+    heroUnderlineCompile 0.6s ease 4.95s forwards;
+}
+
+/* =========================================
+   ROL
+   ========================================= */
+
+.hero-role {
+  display: flex;
+  align-items: center;
+
+  gap: 18px;
+
+  margin-top: 45px;
+
+  opacity: 0;
+
+  transform: translateY(8px);
+
+  animation:
+    heroContentReveal 0.4s ease 5.15s forwards;
+}
+
+.hero-role-line {
+  width: 0;
+  height: 1px;
+
+  flex-shrink: 0;
+
+  background: #f5a524;
+
+  animation:
+    heroRoleLine 0.4s ease 5.2s forwards;
+}
+
+.hero-role-terminal {
+  display: flex;
+  align-items: center;
+
+  min-width: 0;
+}
+
+.hero-role-terminal p {
+  width: 0;
+
+  margin: 0;
+
+  overflow: hidden;
+
+  color: #d4d4d8;
+
+  font-size: clamp(1.15rem, 2vw, 1.55rem);
+  font-weight: 500;
+
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+
+  white-space: nowrap;
+
+  animation:
+    heroRoleTyping 1s
+    steps(24, end)
+    5.35s
+    forwards;
+}
+
+.hero-role-cursor {
+  margin-left: 4px;
+
+  color: #f5a524;
+
+  opacity: 0;
+
+  font-family: "Consolas", "Courier New", monospace;
+
+  animation:
+    showCursor 0s 5.35s forwards,
+    terminalBlink 0.7s steps(1, end) 5.35s infinite;
+}
+
+/* =========================================
+   DESCRIPCIÓN
+   ========================================= */
+
+.hero-redesign .hero-description {
+  max-width: 760px;
+
+  margin-top: 25px;
+
+  color: #9298a3;
+
+  font-size: 1rem;
+  line-height: 1.85;
+
+  opacity: 0;
+
+  transform: translateY(15px);
+
+  animation:
+    heroContentReveal 0.55s ease 5.85s forwards;
+}
+
+/* =========================================
+   TECNOLOGÍAS
+   ========================================= */
+
+.hero-stack {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 8px;
+
+  margin-top: 27px;
+}
+
+.hero-stack span {
+  padding: 7px 10px;
+
+  color: #9298a3;
+
+  background: rgba(255, 255, 255, 0.025);
+
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 4px;
+
+  font-family: "Consolas", "Courier New", monospace;
+  font-size: 0.7rem;
+
+  opacity: 0;
+
+  transform: translateY(10px);
+
+  animation:
+    heroStackReveal 0.35s ease
+    var(--stack-delay)
+    forwards;
+
+  transition:
+    color 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease,
+    transform 0.25s ease;
+}
+
+.hero-stack span:hover {
+  color: #f5a524;
+
+  background: rgba(245, 165, 36, 0.05);
+
+  border-color: rgba(245, 165, 36, 0.25);
+
+  transform: translateY(-2px);
+}
+
+/* =========================================
+   BOTONES
+   ========================================= */
+
+.hero-redesign .hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 13px;
+
+  margin-top: 38px;
+
+  opacity: 0;
+
+  transform: translateY(12px);
+
+  animation:
+    heroContentReveal 0.55s ease 6.65s forwards;
+}
+
+.hero-btn {
+  min-height: 48px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 14px;
+
+  padding: 0 22px;
+
+  border-radius: 5px;
+
+  font-size: 0.86rem;
+  font-weight: 700;
+
+  text-decoration: none;
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease;
+}
+
+.hero-btn:hover {
+  transform: translateY(-3px);
+}
+
+.hero-btn-primary {
+  color: #08090c;
+
+  background: #f5a524;
+
+  border: 1px solid #f5a524;
+}
+
+.hero-btn-primary:hover {
+  background: #ffb535;
+
+  border-color: #ffb535;
+}
+
+.hero-btn-secondary {
+  color: #d4d4d8;
+
+  background: rgba(255, 255, 255, 0.02);
+
+  border: 1px solid rgba(255, 255, 255, 0.13);
+}
+
+.hero-btn-secondary:hover {
+  color: #f5a524;
+
+  border-color: rgba(245, 165, 36, 0.45);
+
+  background: rgba(245, 165, 36, 0.035);
+}
+
+/* =========================================
+   STATUS INFERIOR
+   ========================================= */
+
+.hero-corner-info {
+  position: absolute;
+
+  right: 8%;
+  bottom: 58px;
+
+  z-index: 3;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+  gap: 8px;
+
+  opacity: 0;
+
+  animation:
+    heroFadeIn 0.55s ease 6.85s forwards;
+}
+
+.hero-corner-label {
+  color: #535862;
+
+  font-family: "Consolas", "Courier New", monospace;
+  font-size: 0.65rem;
+  font-weight: 700;
+
+  letter-spacing: 1.8px;
+}
+
+.hero-available {
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+
+  color: #b8bdc5;
+
+  font-size: 0.76rem;
+  font-weight: 500;
+}
+
+.hero-available > span {
+  width: 6px;
+  height: 6px;
+
+  background: #f5a524;
+
+  border-radius: 50%;
+
+  box-shadow:
+    0 0 10px rgba(245, 165, 36, 0.65);
+}
+
+.hero-corner-info p {
+  margin: 0;
+
+  color: #5e646e;
+
+  font-family: "Consolas", "Courier New", monospace;
+  font-size: 0.68rem;
+}
+
+/* =========================================
+   ANIMACIONES
+   ========================================= */
+
+@keyframes terminalLineAppear {
+  from {
+    opacity: 0;
+
+    transform: translateX(-8px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateX(0);
+  }
+}
+
+@keyframes terminalIntroExit {
+  from {
+    opacity: 1;
+
+    transform: translateY(-50%);
+  }
+
+  to {
+    opacity: 0;
+
+    transform:
+      translateY(-55%)
+      translateX(10px);
+
+    visibility: hidden;
+  }
+}
+
+@keyframes heroBootAppear {
+  from {
+    opacity: 0;
+
+    transform: translateY(-8px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateY(0);
+  }
+}
+
+@keyframes heroLetterCompile {
+  0% {
+    opacity: 0;
+
+    transform:
+      translateY(18px)
+      scale(0.96);
+
+    filter: blur(5px);
+  }
+
+  55% {
+    opacity: 1;
+
+    transform:
+      translateY(-2px)
+      scale(1.015);
+
+    filter: blur(0);
+  }
+
+  100% {
+    opacity: 1;
+
+    transform:
+      translateY(0)
+      scale(1);
+
+    filter: blur(0);
+  }
+}
+
+@keyframes heroUnderlineCompile {
+  to {
+    width: 72px;
+  }
+}
+
+@keyframes heroRoleLine {
+  to {
+    width: 46px;
+  }
+}
+
+@keyframes heroRoleTyping {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 24ch;
+  }
+}
+
+@keyframes heroContentReveal {
+  to {
+    opacity: 1;
+
+    transform: translateY(0);
+  }
+}
+
+@keyframes heroStackReveal {
+  to {
+    opacity: 1;
+
+    transform: translateY(0);
+  }
+}
+
+@keyframes heroFadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes showCursor {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes terminalBlink {
+  0%,
+  48% {
+    opacity: 1;
+  }
+
+  49%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes heroStatusPulse {
+  0%,
+  100% {
+    opacity: 0.5;
+
+    transform: scale(0.9);
+  }
+
+  50% {
+    opacity: 1;
+
+    transform: scale(1.15);
+  }
+}
+
+/* =========================================
+   TABLET
+   ========================================= */
+
+@media (max-width: 900px) {
+  .hero.hero-redesign {
+    padding-top: 125px;
+    padding-bottom: 110px;
+  }
+
+  .hero-index {
+    top: 95px;
+  }
+
+  .hero-corner-info {
+    display: none;
+  }
+
+  .hero-name {
+    font-size: clamp(4rem, 15vw, 7rem);
+  }
+}
+
+/* =========================================
+   MÓVIL
+   ========================================= */
+
+@media (max-width: 600px) {
+  .hero.hero-redesign {
+    padding:
+      115px
+      6%
+      80px;
+  }
+
+  .hero-terminal-intro {
+    font-size: 0.72rem;
+  }
+
+  .hero-index {
+    top: 88px;
+    right: 6%;
+
+    font-size: 0.6rem;
+  }
+
+  .hero-eyebrow {
+    max-width: 90%;
+
+    margin-bottom: 25px;
+
+    font-size: 0.62rem;
+    line-height: 1.6;
+  }
+
+  .hero-name {
+    font-size: clamp(3.3rem, 17vw, 5rem);
+
+    line-height: 0.88;
+
+    letter-spacing: -0.06em;
+  }
+
+  .hero-name-last::after {
+    bottom: -10px;
+
+    height: 3px;
+  }
+
+  .hero-role {
+    margin-top: 35px;
+  }
+
+  .hero-role-terminal {
+    overflow: hidden;
+  }
+
+  .hero-role-terminal p {
+    font-size: 1rem;
+  }
+
+  .hero-redesign .hero-description {
+    margin-top: 20px;
+
+    font-size: 0.9rem;
+    line-height: 1.75;
+  }
+
+  .hero-stack {
+    margin-top: 22px;
+  }
+
+  .hero-redesign .hero-buttons {
+    flex-direction: column;
+
+    margin-top: 30px;
+  }
+
+  .hero-btn {
+    width: 100%;
+  }
+
+  .hero-redesign::after {
+    left: 6%;
+    right: 6%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-status-dot {
+    animation: none;
+  }
+}
