@@ -411,7 +411,7 @@
   }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 900px), (max-device-width: 900px) {
   .code-fragment:nth-child(even) {
     display: none;
   }
@@ -429,7 +429,7 @@
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 600px), (max-device-width: 600px) {
   .code-fragment {
     font-size: 0.64rem;
   }

@@ -742,7 +742,7 @@
    TABLET
    ========================================= */
 
-@media (max-width: 900px) {
+@media (max-width: 900px), (max-device-width: 900px) {
   .hero.hero-redesign {
     padding-top: 125px;
     padding-bottom: 110px;
@@ -765,7 +765,7 @@
    MÓVIL
    ========================================= */
 
-@media (max-width: 600px) {
+@media (max-width: 600px), (max-device-width: 600px) {
   .hero.hero-redesign {
     padding:
       115px
