@@ -122,4 +122,102 @@
     padding-left: 6%;
     padding-right: 6%;
   }
+  
+}
+/* =========================
+   LANGUAGE SWITCHER
+   ========================= */
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+
+  gap: 18px;
+
+  margin-left: 28px;
+}
+
+.language-switcher {
+  display: flex;
+  align-items: center;
+
+  gap: 7px;
+
+  padding: 6px 9px;
+
+  background: rgba(255, 255, 255, 0.025);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 5px;
+
+  font-family:
+    "Consolas",
+    "Courier New",
+    monospace;
+}
+
+.language-option {
+  padding: 0;
+
+  color: #626873;
+
+  background: transparent;
+
+  border: 0;
+
+  cursor: pointer;
+
+  font-family: inherit;
+  font-size: 0.72rem;
+  font-weight: 700;
+
+  letter-spacing: 1px;
+
+  transition:
+    color 0.25s ease,
+    text-shadow 0.25s ease;
+}
+
+.language-option:hover {
+  color: #d4d4d8;
+}
+
+.language-option.active {
+  color: #f5a524;
+
+  text-shadow:
+    0 0 10px rgba(245, 165, 36, 0.25);
+}
+
+.language-divider {
+  color: #3f444c;
+
+  font-size: 0.7rem;
+}
+@media (max-width: 900px), (max-device-width: 900px) {
+  .navbar-actions {
+    margin-left: auto;
+
+    gap: 14px;
+  }
+
+  .language-switcher {
+    padding: 5px 7px;
+
+    gap: 5px;
+  }
+
+  .language-option {
+    font-size: 0.68rem;
+  }
+}
+
+@media (max-width: 400px), (max-device-width: 400px) {
+  .navbar-actions {
+    gap: 10px;
+  }
+
+  .language-switcher {
+    padding: 5px 6px;
+  }
 }

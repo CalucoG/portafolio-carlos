@@ -1,5 +1,7 @@
 import './Hero.css'
+
 import CodeGlitchBackground from './CodeGlitchBackground'
+import { useLanguage } from '../context/LanguageContext'
 
 const firstName = 'CARLOS'
 const lastName = 'GAVILANES'
@@ -13,48 +15,134 @@ const technologies = [
   'Git',
 ]
 
+const heroText = {
+  es: {
+    boot: [
+      'inicializando portafolio...',
+      'cargando perfil de desarrollador...',
+      'compilando interfaz...',
+    ],
+
+    eyebrow: 'SOFTWARE DEVELOPER / FULL STACK JUNIOR',
+
+    role: 'Desarrollador de Software',
+
+    description:
+      'Desarrollo aplicaciones web conectando interfaces modernas, servicios backend, APIs REST y bases de datos para construir soluciones funcionales, escalables y orientadas a necesidades reales.',
+
+    projects: 'Ver proyectos',
+    contact: 'Contáctame',
+
+    status: 'ESTADO',
+    available: 'Disponible para oportunidades',
+
+    roleWidth: '24ch',
+  },
+
+  en: {
+    boot: [
+      'initializing portfolio...',
+      'loading developer profile...',
+      'compiling interface...',
+    ],
+
+    eyebrow: 'SOFTWARE DEVELOPER / FULL STACK JUNIOR',
+
+    role: 'Software Developer',
+
+    description:
+      'I build web applications by connecting modern interfaces, backend services, REST APIs and databases to create functional, scalable solutions focused on real-world needs.',
+
+    projects: 'View projects',
+    contact: 'Contact me',
+
+    status: 'STATUS',
+    available: 'Available for opportunities',
+
+    roleWidth: '18ch',
+  },
+}
+
 function Hero() {
+  const { language } = useLanguage()
+
+  const text = heroText[language]
+
   return (
-    <section className="hero hero-redesign" id="inicio">
+    <section
+      className="hero hero-redesign"
+      id="inicio"
+    >
       <CodeGlitchBackground />
 
-      <div className="hero-index" aria-hidden="true">
+      <div
+        className="hero-index"
+        aria-hidden="true"
+      >
         01 / PORTFOLIO
       </div>
 
       <div className="hero-content">
-        <div className="hero-terminal-intro" aria-hidden="true">
+
+        {/* TERMINAL DE INICIO */}
+
+        <div
+          className="hero-terminal-intro"
+          aria-hidden="true"
+        >
           <div className="terminal-intro-line terminal-line-1">
-            <span className="terminal-prompt">&gt;</span>
-            initializing portfolio...
+            <span className="terminal-prompt">
+              &gt;
+            </span>
+
+            {text.boot[0]}
           </div>
 
           <div className="terminal-intro-line terminal-line-2">
-            <span className="terminal-prompt">&gt;</span>
-            loading developer profile...
+            <span className="terminal-prompt">
+              &gt;
+            </span>
+
+            {text.boot[1]}
           </div>
 
           <div className="terminal-intro-line terminal-line-3">
-            <span className="terminal-prompt">&gt;</span>
-            compiling interface...
+            <span className="terminal-prompt">
+              &gt;
+            </span>
+
+            {text.boot[2]}
           </div>
 
           <div className="terminal-intro-line terminal-line-4">
-            <span className="terminal-prompt">&gt;</span>
-            <span className="terminal-ready">READY</span>
-            <span className="terminal-intro-cursor">_</span>
+            <span className="terminal-prompt">
+              &gt;
+            </span>
+
+            <span className="terminal-ready">
+              READY
+            </span>
+
+            <span className="terminal-intro-cursor">
+              _
+            </span>
           </div>
         </div>
 
+        {/* CONTENIDO PRINCIPAL */}
+
         <div className="hero-main-sequence">
+
           <div className="hero-eyebrow hero-boot">
             <span className="hero-status-dot"></span>
 
             <span>
-              SOFTWARE DEVELOPER / FULL STACK JUNIOR
+              {text.eyebrow}
             </span>
 
-            <span className="hero-terminal-cursor">_</span>
+            <span className="hero-terminal-cursor">
+              _
+            </span>
           </div>
 
           <h1
@@ -70,7 +158,8 @@ function Hero() {
                   className="hero-letter"
                   key={`${letter}-${index}`}
                   style={{
-                    '--letter-delay': `${3.35 + index * 0.09}s`,
+                    '--letter-delay':
+                      `${3.35 + index * 0.09}s`,
                   }}
                 >
                   {letter}
@@ -87,7 +176,8 @@ function Hero() {
                   className="hero-letter"
                   key={`${letter}-${index}`}
                   style={{
-                    '--letter-delay': `${4.05 + index * 0.085}s`,
+                    '--letter-delay':
+                      `${4.05 + index * 0.085}s`,
                   }}
                 >
                   {letter}
@@ -100,7 +190,13 @@ function Hero() {
             <span className="hero-role-line"></span>
 
             <div className="hero-role-terminal">
-              <p>Desarrollador de Software</p>
+              <p
+                style={{
+                  '--role-width': text.roleWidth,
+                }}
+              >
+                {text.role}
+              </p>
 
               <span className="hero-role-cursor">
                 _
@@ -109,10 +205,7 @@ function Hero() {
           </div>
 
           <p className="hero-description">
-            Desarrollo aplicaciones web conectando interfaces modernas,
-            servicios backend, APIs REST y bases de datos para construir
-            soluciones funcionales, escalables y orientadas a necesidades
-            reales.
+            {text.description}
           </p>
 
           <div className="hero-stack">
@@ -120,7 +213,8 @@ function Hero() {
               <span
                 key={technology}
                 style={{
-                  '--stack-delay': `${6.05 + index * 0.12}s`,
+                  '--stack-delay':
+                    `${6.05 + index * 0.12}s`,
                 }}
               >
                 {technology}
@@ -133,31 +227,38 @@ function Hero() {
               href="#proyectos"
               className="hero-btn hero-btn-primary"
             >
-              Ver proyectos
-              <span>↗</span>
+              {text.projects}
+
+              <span>
+                ↗
+              </span>
             </a>
 
             <a
               href="#contacto"
               className="hero-btn hero-btn-secondary"
             >
-              Contáctame
+              {text.contact}
             </a>
           </div>
+
         </div>
       </div>
 
       <div className="hero-corner-info">
         <span className="hero-corner-label">
-          STATUS
+          {text.status}
         </span>
 
         <div className="hero-available">
           <span></span>
-          Disponible para oportunidades
+
+          {text.available}
         </div>
 
-        <p>Frontend · Backend · Cloud</p>
+        <p>
+          Frontend · Backend · Cloud
+        </p>
       </div>
     </section>
   )

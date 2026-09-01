@@ -679,7 +679,7 @@
   }
 
   to {
-    width: 24ch;
+    width: var(--role-width);
   }
 }
 
